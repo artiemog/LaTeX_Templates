@@ -1,0 +1,102 @@
+\documentclass{article}
+
+%% Packages
+% Lots of things below will break without this
+\usepackage{amsmath}
+
+% Needed for auto-size parens (below) and rcases (see example)
+\usepackage{mathtools}
+
+% Extra math symbols - full list at
+% http://milde.users.sourceforge.net/LUCR/Math/mathpackages/amssymb-symbols.pdf
+\usepackage{amssymb}
+
+% Bold math characters (for matrices &c.)
+% Use \bm in math mode to invoke, e.g. $\bm{A}$ or $\bm A$
+\usepackage{bm}
+
+% SI units (see package docs)
+%\usepackage{siunitx}
+%%
+
+% Auto-size parens in math mode
+% Use \br{} in place of ()
+\DeclarePairedDelimiter\autobracket{(}{)}
+\newcommand{\br}[1]{\autobracket*{#1}}
+
+% Use alphabetic subsections instead of numeric (for parts of questions)
+\renewcommand{\thesubsection}{\thesection(\alph{subsection})}
+
+\title{ECE 3040 Homework 4}
+\date{01 January 2010}
+\author{Artemis Mog}
+
+% ************************************************************************
+
+\begin{document}
+\maketitle
+
+% Jump to a specific question number
+% The number in brackets is the number of the *current* section, so
+% `\setcounter{section}{n}`,`\section{}` will give a section numbered n+1.
+\setcounter{section}{4}
+\section{}
+\subsection{}
+
+% Aligned multiline equation
+\begin{equation*}
+\begin{aligned}
+\sigma &= q \mu_n n + q \mu_p p \\
+&= q \mu_n n + q \mu_p \frac{{n_i}^2}{n} \\
+\end{aligned}
+\end{equation*}
+
+% My "solution" for Scientific notation
+\[ 3 \textsc{e} {-6} \]
+
+% (Parenthetical) Matrices
+% Other delimiters:
+% bmatrix Bmatrix vmatrix Vmatrix matrix
+% [ ]     { }     | |     || ||   (none)
+\[
+s \bm I - \bm A = \begin{pmatrix}
+s & 3 \\
+-3 & s+5 \end{pmatrix}
+\]
+
+% rcases example
+\begin{equation*}
+\begin{rcases}
+\mu_n \\
+\mu_p
+\end{rcases}
+\propto T^{-3/2}
+\end{equation*}
+
+% Referencing equations
+% Document must be compiled (at least) twice or references will be broken
+\begin{equation} \label{eq:sigma}
+\sigma = q \cdot \br{n \alpha T^{-3/2} + p \beta T^{-3/2}}
+\end{equation}
+\begin{equation} \label{eq:n}
+n = N_c e^{\frac{-\br{E_c - E_f}}{kT}}
+\end{equation}
+\begin{equation} \label{eq:Nc}
+N_c = 2\br{\frac{m_n^*kT}{2\pi\hbar^2}}^{\frac{3}{2}}
+\end{equation}
+\begin{equation} \label{eq:p}
+p = N_v e^{\frac{E_v - E_f}{kT}}
+\end{equation}
+\begin{equation} \label{eq:Nv}
+N_v = 2\br{\frac{m_p^*kT}{2\pi\hbar^2}}^{\frac{3}{2}}
+\end{equation}
+Plugging in (\ref{eq:n}), (\ref{eq:Nc}), (\ref{eq:p}), and (\ref{eq:Nv}) into
+(\ref{eq:sigma}), the resulting expression for $\sigma$ will vary with
+$e^{-1/T}$.
+
+% Boxing a final anwer
+\[ \boxed{\mathcal{E} = -\frac{kt}{qx}} \]
+
+
+
+\end{document}
